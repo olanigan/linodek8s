@@ -9,3 +9,21 @@
 ##1 - LKE Setup
 
 Create a Kubernetes cluster in Linode with latest Kubernetes version (1.25 at the time of writing) with a single shared Linode 2GB node. This configuration will suffice for this test setup.
+
+##2 - Setup LKE access in Local machine
+
+```
+export KUBECONFIG=$KUBECONFIG:~/PATH/TO/LKE/CONFIG
+kubectl config view --raw >> ~/.kube/config.new
+mv ~/.kube/config.new ~/.kube/config
+unset KUBECONFIG
+```
+
+##3 - Install NGINX web server
+
+```
+k create deployment web --image nginx
+k expose deployment web --port 80 --type LoadBalancer
+```
+
+![](img/nginx.png)
