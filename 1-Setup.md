@@ -27,3 +27,8 @@ k expose deployment web --port 80 --type LoadBalancer
 ```
 
 ![](img/nginx.png)
+
+##3.1 - `kubectl proxy` and `kubectl port-forward`
+
+Run `kubectl proxy {PORT}` and access `web` nginx service with address
+`http://localhost:{PORT}/api/v1/namespaces/default/services/web/proxy/`
