@@ -29,3 +29,8 @@ To see full part, output to `yaml` format
 
 ![](img/helm.png)
 
+## Update Helm release
+
+Update value of service type from `ClusterIP` to `NodePort`
+
+```helm upgrade my-juice-shop juice/juice-shop --set service.type=NodePort```
